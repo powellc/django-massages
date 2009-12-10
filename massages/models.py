@@ -9,7 +9,8 @@ class Massage(models.Model):
     '''
     title = models.CharField(_("title"), max_length = 255)
 	slug = models.SlugField()
-    description = models.TextField(_("description"), null = True, blank = True)
+	lead = models.TextField(_('lead'), max_length=255)
+    description = models.TextField(_("description"))
 	photo = models.FileField(_('photo'), upload_to="massages/")
     creator = models.ForeignKey(User, null = True, verbose_name=_("creator"))
     created_on = models.DateTimeField(_("created on"), default = datetime.now)
