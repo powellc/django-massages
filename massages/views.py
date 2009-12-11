@@ -2,9 +2,16 @@ from django.shortcuts import get_list_or_404, render_to_response, get_object_or_
 from django.template import RequestContext
 from massages.models import Massage, RateList
 
-def index(request):
-	massages=Massage.objects.filter(active=True)
-	ratelist=RateList.objects.get(active=True)
+def massage_index(request):
+    massages=Massage.objects.filter(active=True)
+    ratelist=RateList.objects.get(active=True)
+    rl_addendum = []
+    for m in massages:
+        if m.at_rate == False:
+	    if m.price == None:
+                rl_addendum.append(dict(title=m, price="Please call"))
+	    else:
+		rl_addendum.append(dict(title=m, price="$"+str(m.price)))                		
 	return render_to_response('massages/index.html', locals(), 
 						context_instance=RequestContext(request))
 
