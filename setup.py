@@ -1,6 +1,6 @@
 from distutils.core import setup
 
-setup(name='django-contact-form',
+setup(name='django-massages',
       version='0.1',
       description='Generic massage application for Django',
       author='Colin Powell',
