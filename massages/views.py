@@ -20,3 +20,7 @@ def massage_detail(request, slug):
 	return render_to_response('massages/massage_detail.html', locals(), 
 						context_instance=RequestContext(request))
 	
+def massage_about(request, slug):
+	return render_to_response('massages/massage_about.html', locals(), 
+						context_instance=RequestContext(request))
+	
