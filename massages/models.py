@@ -3,7 +3,7 @@ from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 
-from massages.managers import ActiveManger
+from massages.managers import ActiveManager
 
 class Massage(models.Model):
     '''
