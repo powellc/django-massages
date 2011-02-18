@@ -8,4 +8,5 @@ from massages.models import Massage, RateList
 # custom views vendors
 urlpatterns = patterns('massages.views',
     url(r'^$', view=views.massage_index, name="massage_index"),
+    url(r'^$', view=views.massage_about, name="massage_about"),
 )
