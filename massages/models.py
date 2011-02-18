@@ -23,6 +23,9 @@ class Massage(models.Model):
         verbose_name = _('massage')
         verbose_name_plural = _('massages')
 
+    def rate(self):
+        return "$" + str(self.price) + " per " + str(self.time) + " minutes"
+
     def __unicode__(self):
 	return self.title
 		
