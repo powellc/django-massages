@@ -2,8 +2,9 @@ from django.db import models
 from datetime import datetime
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 
-from massages.managers import ActiveManger
+from massages.managers import ActiveManager
 
 class Massage(models.Model):
     '''
@@ -20,6 +21,8 @@ class Massage(models.Model):
     time=models.IntegerField(_('time'), null=True, blank=True)
     at_rate = models.BooleanField(_('standard rate?'), default=False)
     active = models.BooleanField(_('active'), default=True)
+    order = models.IntegerField(_('order'), blank=True, null=True, max_length=3)
+
     objects = models.Manager()
     active_objects = ActiveManager()
 
