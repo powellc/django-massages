@@ -9,10 +9,10 @@ def massage_index(request):
     for m in massages:
         if m.at_rate == False:
 	    if m.price == None:
-                rl_addendum.append(dict(title=m, price="Please call"))
+                rl_addendum.append(dict(title=m.title.split(' massage')[0], price="Please call"))
 	    else:
-		rl_addendum.append(dict(title=m, price="$"+str(m.price)))                		
-	return render_to_response('massages/index.html', locals(), 
+		rl_addendum.append(dict(title=m.title.split(' massage')[0], price="$"+str(m.price)+"/"+str(m.time)+" min"))                		        
+    return render_to_response('massages/index.html', locals(), 
 						context_instance=RequestContext(request))
 
 def massage_detail(request, slug):
